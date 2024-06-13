@@ -1,0 +1,31 @@
+[
+    {
+        "description": "asdf",
+        "imagePath": "https://www.adorama.com/alc/wp-content/uploads/2018/11/landscape-photography-tips-yosemite-valley-feature.jpg",
+        "ingredients": [
+            {
+                "amount": 12,
+                "name": "asdf"
+            },
+            {
+                "amount": 1244412,
+                "name": "asdf"
+            }
+        ],
+        "steps": [
+            {
+                "stepnmbr": 1,
+                "description": "hallo test test",
+                "duration": 40,
+                "timer": true
+            },
+            {
+                "stepnmbr": 2,
+                "description": "hallo test",
+                "duration": 0,
+                "timer": false
+            }
+        ],
+        "name": "asdf"
+    }
+]
