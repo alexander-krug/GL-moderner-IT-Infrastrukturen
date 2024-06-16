@@ -4,11 +4,11 @@
       <h2>Step {{ currentStep + 1 }} of {{ steps.length }}</h2>
       <p>{{ steps[currentStep].description }}</p>  
       <div *ngIf="steps[currentStep].timer">
-        <countdown #cd [config]="{leftTime: steps[currentStep].duration}" />
+        <countdown #cd [config]="{leftTime: steps[currentStep].duration, demand: true}" />
         <div>
+          <button (click)="cd.begin()" class="btn btn-link btn-sm">begin</button>
           <button (click)="cd.pause()" class="btn btn-link btn-sm">pause</button>
           <button (click)="cd.resume()" class="btn btn-link btn-sm">resume</button>
-          <button (click)="cd.stop()" class="btn btn-link btn-sm">stop</button>
           <button (click)="cd.restart()" class="btn btn-link btn-sm">restart</button>
         </div>
       </div>
