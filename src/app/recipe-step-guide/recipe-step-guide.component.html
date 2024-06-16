@@ -1,0 +1,34 @@
+<div *ngIf="currentStep >=0">
+  <div *ngIf="steps && steps.length">
+    <div class="step-container">
+      <h2>Step {{ currentStep + 1 }} of {{ steps.length }}</h2>
+      <p>{{ steps[currentStep].description }}</p>  
+      <div *ngIf="steps[currentStep].timer">
+        <countdown #cd [config]="{leftTime: steps[currentStep].duration}" />
+        <div>
+          <button (click)="cd.pause()" class="btn btn-link btn-sm">pause</button>
+          <button (click)="cd.resume()" class="btn btn-link btn-sm">resume</button>
+          <button (click)="cd.stop()" class="btn btn-link btn-sm">stop</button>
+          <button (click)="cd.restart()" class="btn btn-link btn-sm">restart</button>
+        </div>
+      </div>
+      <div class="navigation-buttons">
+        <button (click)="previousStep()" [disabled]="currentStep === -1">Previous</button>
+        <button (click)="nextStep()" [disabled]="currentStep === steps.length - 1">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="currentStep < 0">
+  <div class="ingredient-container">
+    <h2>Zutaten:</h2>
+    <ul>
+      <li *ngFor=" let ingredient of ingredients">{{ingredient.name}}: {{ingredient.amount}}</li>
+    </ul>
+  </div>
+  <div class="navigation-buttons">
+    <button (click)="nextStep()">Next</button>
+  </div>
+</div>
+
+  

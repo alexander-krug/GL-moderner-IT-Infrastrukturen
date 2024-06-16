@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { DataStorageService } from '../shared/data-storage.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {  Subscription } from 'rxjs';
+import { CountdownModule } from 'ngx-countdown';
 
 @Component({
   selector: 'app-header',
