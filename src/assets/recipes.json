@@ -1,31 +1,124 @@
 [
     {
-        "description": "asdf",
+        "description": "Nervenkekse",
         "imagePath": "https://www.adorama.com/alc/wp-content/uploads/2018/11/landscape-photography-tips-yosemite-valley-feature.jpg",
         "ingredients": [
             {
-                "amount": 12,
-                "name": "asdf"
+                "amount": 500,
+                "name": "Dinkelmehl (g)"
             },
             {
-                "amount": 1244412,
-                "name": "asdf"
+                "amount": 100,
+                "name": "gemahlene Mandeln (g)"
+            },
+            {
+                "amount": 200,
+                "name": "Butter (g)"
+            },
+            {
+                "amount": 150,
+                "name": "Zucker (g)"
+            },
+            {
+                "amount": 2,
+                "name": "Eier"
+            },
+            {
+                "amount": 1,
+                "name": "Prisen Salz"
+            },
+            {
+                "amount": 10,
+                "name": "Zimt (g)"
+            },
+            {
+                "amount": 10,
+                "name": "Muskat (g)"
+            },
+            {
+                "amount": 5,
+                "name": "Nelken (g)"
             }
         ],
         "steps": [
             {
                 "stepnmbr": 1,
-                "description": "hallo test test",
-                "duration": 40,
-                "timer": true
+                "description": "Alle Zutaten in Teig verkneten",
+                "duration": 0,
+                "timer": false,
+                "necessary": true
             },
             {
                 "stepnmbr": 2,
-                "description": "hallo test",
+                "description": "Mit Milch oder Wasser auflockern",
                 "duration": 0,
-                "timer": false
+                "timer": false,
+                "necessary": true
+            },
+            {
+                "stepnmbr": 3,
+                "description": "Eine halbe Stunde kaltstellen",
+                "duration": 2,
+                "timer": true,
+                "necessary": true
+            },
+            {
+                "stepnmbr": 4,
+                "description": "Backofen auf 180° vorheizen",
+                "duration": 0,
+                "timer": false,
+                "necessary": true
+            },
+            {
+                "stepnmbr": 5,
+                "description": "Hälfte der Masse dünn ausrollen",
+                "duration": 0,
+                "timer": false,
+                "necessary": true
+            },
+            {
+                "stepnmbr": 6,
+                "description": "Kekse ausstechen",
+                "duration": 0,
+                "timer": false,
+                "necessary": true
+            },
+            {
+                "stepnmbr": 7,
+                "description": "Rest der Masse dünn ausrollen",
+                "duration": 0,
+                "timer": false,
+                "necessary": true
+            },
+            {
+                "stepnmbr": 8,
+                "description": "Backbapier auf Backblech legen oder mit Butter einfetten. Danach Kekse auf Blech legen",
+                "duration": 0,
+                "timer": false,
+                "necessary": true
+            },
+            {
+                "stepnmbr": 9,
+                "description": "Kekse min 10 min in vorgeheiztem backofen backen",
+                "duration": 10,
+                "timer": true,
+                "necessary": true
+            },
+            {
+                "stepnmbr": 10,
+                "description": "Kekse fertig? Falls nicht 5 min weiterbacken",
+                "duration": 5,
+                "timer": true,
+                "necessary": false
+            },
+            {
+                "stepnmbr": 11,
+                "description": "Kekse essen",
+                "duration": 0,
+                "timer": false,
+                "necessary": true
             }
         ],
-        "name": "asdf"
+        "name": "Nervenkekse"
     }
 ]

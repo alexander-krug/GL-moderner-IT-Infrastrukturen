@@ -5,6 +5,7 @@ import {Ingredient} from '../shared/ingredient.model';
 export class ShoppingListService{
     startEditing = new Subject<number>();
     ingredientsChanged = new Subject<Ingredient[]>();
+    
 
 
 
@@ -14,17 +15,34 @@ export class ShoppingListService{
       ];
 
       getIngredients(){
+        console.log(this.ingredients)
         return this.ingredients;
+        
       }
 
       getIngredient(index: number){
         return this.ingredients[index];
       }
 
-      addIngredients(ingredients: Ingredient[]){
-        ingredients.forEach(ing => {
-          this.ingredients.push(ing)
-        });
+      addIngredients(ingredientsIn: Ingredient[]){
+        for (let ing of ingredientsIn){
+          var found = false;
+          for (let ingAlt of this.ingredients){
+            if (ingAlt.name==ing.name){
+              found = true;
+              console.log(ingAlt.amount);
+              console.log(ing.amount);
+              ingAlt.amount += ing.amount;
+              console.log(ingAlt.amount);
+              console.log(ing.amount);
+              break;
+            } 
+          }
+          if (found == false){
+            this.ingredients.push(ing);
+          } 
+        }
+
         this.ingredientsChanged.next(this.ingredients.slice());
       }
 

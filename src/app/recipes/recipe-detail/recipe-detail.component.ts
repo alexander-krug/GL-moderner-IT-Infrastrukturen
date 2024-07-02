@@ -14,6 +14,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 export class RecipeDetailComponent implements OnInit {
   recipeToDisplay!:Recipe;
   id!: number;
+  amount = 1;
 
   constructor(
               private slService: ShoppingListService,
@@ -33,7 +34,11 @@ export class RecipeDetailComponent implements OnInit {
 
   addToShoppingList(){
     if(this.recipeToDisplay?.ingredients){
-      this.slService.addIngredients(this.recipeToDisplay.ingredients);
+      var toAdd = JSON.parse(JSON.stringify(this.recipeToDisplay))
+      for (var ingredientAdd of toAdd.ingredients){
+        ingredientAdd.amount=ingredientAdd.amount*this.amount
+      }
+      this.slService.addIngredients(toAdd.ingredients);
     }
   }
 
@@ -41,4 +46,18 @@ export class RecipeDetailComponent implements OnInit {
     this.recipesService.deleteRecipe(this.id);
     this.router.navigate(['../'], {relativeTo: this.route});
   }
+  updateAmount(event: any){
+    this.amount=event.data
+  }
+  // updateVorhanden(event: any, name: string){
+  //   console.log(name)
+  //   for (let item of this.vorhanden) {
+  //     if (item.name==name){
+  //       item.value=event.data;
+  //     }
+  //     else {
+  //       this.vorhanden.push({"name": name, "value": event.data})
+  //     }
+  //   }
+  // }
 }
