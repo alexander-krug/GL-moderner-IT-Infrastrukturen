@@ -6,10 +6,10 @@
             <button
               type="submit"
               class="btn btn-success mt-2"
-              [disabled]="!recipeForm.valid">
-              {{editMode ? 'Save' : 'Add'}}
+              [disabled]="recipeForm.valid">
+              {{editMode ? 'Speichern' : 'Hinzufügen'}}
             </button>
-            <button type="button" class="btn btn-danger mt-2" style="margin-left: 8px;" (click)="onCancel()">Cancel</button>
+            <button type="button" class="btn btn-danger mt-2" style="margin-left: 8px;" (click)="onCancel()">Abbruch</button>
           </div>
         </div>
         <div class="row">
@@ -27,7 +27,7 @@
         <div class="row">
           <div class="col-12">
             <div class="form-group">
-              <label for="imagePath" class="fw-bold">Image URL</label>
+              <label for="imagePath" class="fw-bold">Bild URL</label>
               <input
                 type="text"
                 id="imagePath"
@@ -45,7 +45,7 @@
         <div class="row">
           <div class="col-12">
             <div class="form-group">
-              <label for="description" class="fw-bold">Description</label>
+              <label for="description" class="fw-bold">Beschreibung</label>
               <textarea
                 type="text"
                 id="description"
@@ -87,7 +87,7 @@
                 <button
                   type="button"
                   class="btn btn-success"
-                  (click)="onAddIngredient()">Add Ingredient</button>
+                  (click)="onAddIngredient()">Zutat hinzufügen</button>
               </div>
             </div>
           </div>
@@ -108,14 +108,26 @@
                 <div class="col-1">
                   <input
                     type="checkbox"
+                    name="muss"
                     class="mb-2"
+                    formControlName="necessary">
+                    <label for="muss">muss</label><br>
+                </div>
+                <div class="col-1">
+                  <input
+                    type="checkbox"
+                    class="mb-2"
+                    name="timer"
                     formControlName="timer">
+                    <label for="timer">timer</label><br>
                 </div>
                 <div class="col-2">
                   <input
+                    name="dauer"
                     type="number"
                     class="form-control mb-2"
                     formControlName="duration">
+                    <label for="dauer">dauer</label><br>
                 </div>
                 <div class="col-2">
                   <button
@@ -130,7 +142,7 @@
                 <button
                   type="button"
                   class="btn btn-success"
-                  (click)="onAddStep()">Add Step</button>
+                  (click)="onAddStep()">Schritt hinzufügen</button>
               </div>
             </div>
           </div>

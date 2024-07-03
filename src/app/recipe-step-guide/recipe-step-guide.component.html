@@ -1,7 +1,7 @@
 <div *ngIf="currentStep >=0">
   <div *ngIf="steps && steps.length">
     <div class="step-container">
-      <h2>Step {{ currentStep + 1 }} of {{ steps.length }}</h2>
+      <h2>Schritt {{ currentStep + 1 }} von {{ steps.length }}</h2>
       <p>{{ steps[currentStep].description }}</p>  
       <div *ngIf="steps[currentStep].timer">
         <countdown #cd [config]="{leftTime: steps[currentStep].duration, demand: true}" (event)="onTimerFinished($event);"/>

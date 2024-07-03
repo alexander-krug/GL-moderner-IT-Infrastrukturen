@@ -10,8 +10,8 @@ export class ShoppingListService{
 
 
     private ingredients: Ingredient[] = [
-        new Ingredient('Apples', 5),
-        new Ingredient('Tomatos', 10),
+        // new Ingredient('Äpfel', 5),
+        // new Ingredient('Tomaten', 10),
       ];
 
       getIngredients(){
@@ -61,6 +61,11 @@ export class ShoppingListService{
           this.ingredients.splice(index, 1);
           this.ingredientsChanged.next(this.ingredients.slice());
       }
+
+      new(){
+        this.ingredients = [];
+        this.ingredientsChanged.next(this.ingredients.slice());
+    }
 
       clearIngsArray(){
         this.ingredients.splice(0, this.ingredients.length);

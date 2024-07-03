@@ -20,7 +20,7 @@ export class DataStorageService{
     const recipes = this.recipeService.getRecipes();
 
     this.http.put(
-      '../../assets/recipes.json"',
+      'http://localhost:3000/recipe',
       recipes
     )
     .subscribe(response => {
@@ -30,7 +30,7 @@ export class DataStorageService{
 
   fetchRecipes(){
       return this.http.get<Recipe[]>(
-        '../../assets/recipes.json')
+        'http://localhost:3000/recipe')
         .pipe(
           map(recipes => {
             return recipes.map(recipe => {

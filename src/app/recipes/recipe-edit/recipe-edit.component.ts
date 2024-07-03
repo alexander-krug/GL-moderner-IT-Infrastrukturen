@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import{ActivatedRoute, Params, Router} from '@angular/router';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms'
-
+import { DataStorageService } from '../../shared/data-storage.service';
 import {RecipesService} from '../recipes.service';
 import {Recipe} from '../recipe.model';
 
@@ -20,6 +20,7 @@ export class RecipeEditComponent implements OnInit {
     private route: ActivatedRoute,
     private recipesService: RecipesService,
     private router: Router,
+    private dataStorageService: DataStorageService,
      ){}
 
   ngOnInit(){
@@ -52,6 +53,7 @@ export class RecipeEditComponent implements OnInit {
       new FormGroup({
         'description': new FormControl(null, Validators.required),
         'timer': new FormControl(null),
+        'necessary': new FormControl(null),
         'duration': new FormControl(null,
            [
             Validators.pattern(/^[1-9]+[0-9]*$/)
@@ -73,6 +75,7 @@ export class RecipeEditComponent implements OnInit {
       this.recipesService.addRecipe(recipe);
     }
     this.navigateAway();
+    this.dataStorageService.storeRecipes();
   }
 
   onCancel(){
@@ -118,6 +121,7 @@ export class RecipeEditComponent implements OnInit {
             new FormGroup({
               'description': new FormControl(step.description, Validators.required),
               'timer': new FormControl<boolean>(step.timer),
+              'necessary': new FormControl(step.necessary),
               'duration': new FormControl(step.duration,
                  [
                   Validators.pattern(/^[1-9]+[0-9]*$/)
