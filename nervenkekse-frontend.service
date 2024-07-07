@@ -1,0 +1,21 @@
+[Unit]
+Description=nervenkekse frontend
+# bevor der nervenkekse service startet, der docker nutzt, muss natürlich docker in Betrieb sein
+Requires=docker.service
+After=docker.service
+ 
+[Service]
+# mit welchem command wird der Service gestartet
+ExecStart=/usr/bin/docker start -a frontend
+
+# mit welchem command wird der Service gestoppt
+ExecStop=/usr/bin/docker stop frontend
+
+WorkingDirectory=/home/nervenkekse/docker-frontend
+
+# bei Abstürzen soll nervenkekse frontend wieder gestartet werden, nur bei aktivem stoppen, soll es auch nicht wieder starten
+Restart=unless-stopped
+ 
+[Install]
+# diese Zeile führt dazu, dass boot und reboot den Servicestart triggern
+WantedBy=multi-user.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=nervenkekse chrome
+# bevor der Browser sich öffnet, müssen natürlich frontend und backend in Betrieb sein
+Requires=graphical.target nervenkekse-frontend.service nervenkekse-backend.service
+After=nervenkekse-frontend.service nervenkekse-backend.service
+ 
+[Service]
+# mit welchem command wird der Service gestartet
+ExecStart=/usr/bin/google-chrome-stable http://localhost:4200
+User=nervenkekse
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=$(xauth info | grep 'Authority file' | awk '{print $3}')"
+
+[Install]
+# diese Zeile führt dazu, dass boot und reboot den Servicestart triggern
+WantedBy=multi-user.target
